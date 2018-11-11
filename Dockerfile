@@ -20,5 +20,6 @@ RUN \
   rm -rf ~/.gem
 
 COPY . $APP_ROOT
-# EXPOSE 3000
-# CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["rm", "./tmp/pids/server.pid"]
+EXPOSE 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]
