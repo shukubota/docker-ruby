@@ -21,3 +21,7 @@ dockerのruby imageからrails環境を作る
 ```docker-compose run --rm app rails c```
 
 ```docker-compose run --rm app rails db:migrate```
+
+
+### コンテナの中に入る
+```docker-compose exec app /bin/bash -l```
