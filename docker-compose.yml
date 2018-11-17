@@ -10,7 +10,11 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - .:/work/docker-ruby-test
+      - .:/work/docker-ruby-test:cached
+      - /work/docker-ruby-test/vendor
+      - /work/docker-ruby-test/tmp
+      - /work/docker-ruby-test/log
+      - /work/docker-ruby-test/.git
     links:
         - mysql
 
