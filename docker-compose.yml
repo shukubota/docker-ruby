@@ -11,10 +11,10 @@ services:
       - '3000:3000'
     volumes:
       - .:/work/docker-ruby-test:cached
-      - /work/docker-ruby-test/vendor
-      - /work/docker-ruby-test/tmp
-      - /work/docker-ruby-test/log
-      - /work/docker-ruby-test/.git
+      - vendor:/work/docker-ruby-test/vendor
+      - tmp:/work/docker-ruby-test/tmp
+      - log:/work/docker-ruby-test/log
+      - .git:/work/docker-ruby-test/.git
     links:
         - mysql
 
@@ -28,6 +28,10 @@ services:
       - mysql-data:/var/lib/mysql
     
 volumes:
+  vendor:
+  tmp:
+  log:
+  .git:
   mysql-data:
     driver: local
 
