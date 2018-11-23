@@ -1,3 +1,7 @@
+
+# herokuにデプロイしたもののリンク
+https://docker-ruby-heroku.herokuapp.com/
+
 # 環境構築
 https://qiita.com/togana/items/30b22fc39fe6f7a188ec
 
@@ -27,6 +31,9 @@ dockerのruby imageからrails環境を作る
 で3000版にサーバがたつ
 
 ### heroku　デプロイ
+https://qiita.com/NaokiIshimura/items/eee473675d624a17310f
+
+参考↑
 ```
 heroku login
 (git remote -v)
