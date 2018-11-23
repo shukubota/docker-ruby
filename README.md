@@ -1,4 +1,8 @@
-# docker-ruby
+
+# herokuにデプロイしたもののリンク
+https://docker-ruby-heroku.herokuapp.com/
+
+# 環境構築
 https://qiita.com/togana/items/30b22fc39fe6f7a188ec
 
 ここを参考にした
@@ -15,13 +19,33 @@ dockerのruby imageからrails環境を作る
 
 ### docker-compose up
 ```docker-compose up```
-で3000番にrails serverたつ
+でコンテナたてる
 
-### rails console, migrateとか
-```docker-compose run --rm app rails c```
-
-```docker-compose run --rm app rails db:migrate```
-
-
-### コンテナの中に入る
+### コンテナにはいる
 ```docker-compose exec app /bin/bash -l```
+
+
+### rails server
+```bin/rails s```
+
+で3000版にサーバがたつ
+
+### heroku　デプロイ
+https://qiita.com/NaokiIshimura/items/eee473675d624a17310f
+
+参考↑
+```
+heroku login
+(git remote -v)
+git push heroku master
+```
+
+### デバッグ
+```
+heroku logs -t
+```
+
+### マイグレーション
+```
+heroku run rake db:migrate
+```
