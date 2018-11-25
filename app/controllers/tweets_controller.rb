@@ -2,9 +2,9 @@ class TweetsController < ApplicationController
   before_action :twitter_client, only: [:get_tweets]
   def index
     @tweets = Tweet.all
-    @content_type = false
-    if params[:tweet_screen] == "true"
-      @content_type = true
+    @content_type = true
+    if params[:tweet_screen] == "false"
+      @content_type = false
     end
   end
   def show
