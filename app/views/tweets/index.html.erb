@@ -9,8 +9,15 @@
 
 <div id="contents">  
   <p>
-    <%= link_to "ツイート作成", {:controller => "tweets", :action => "register"}, method: :get %>
+    <%= link_to "ツイート更新", {:controller => "tweets", :action => "get_tweets"}, method: :get %>
   </p>
+  <p>
+    <% if @content_type %>
+      <%= link_to "テキスト表示", {:controller => "tweets", :action => "index", :tweet_screen => false}, method: :get %>
+    <% else %>
+      <%= link_to "ツイート表示", {:controller => "tweets", :action => "index", :tweet_screen => true}, method: :get %>
+    <% end %>
+　 </p>
 
   <div>
     <table ~~~ style="table-layout:fixed;width:100%;">
@@ -25,7 +32,11 @@
     <% @tweets.each do |tweet| %>
         <tr>
         <td ~~~  style="word-wrap:break-word;>
-          <%= link_to tweet.content.html_safe, :controller => "tweets", :action => "show", :id => tweet.id%>
+          <% if @content_type %>
+            <%= link_to tweet.html_content.html_safe, :controller => "tweets", :action => "show", :id => tweet.id%>
+          <% else %>
+            <%= link_to tweet.content.html_safe, :controller => "tweets", :action => "show", :id => tweet.id%>
+          <% end %>
         </td>
         <td ~~~ >
           <%= (tweet.item && tweet.item.name) || '' %>

@@ -2,6 +2,10 @@ class TweetsController < ApplicationController
   before_action :twitter_client, only: [:get_tweets]
   def index
     @tweets = Tweet.all
+    @content_type = false
+    if params[:tweet_screen] == "true"
+      @content_type = true
+    end
   end
   def show
     @tweet = Tweet.find_by(id: params[:id])
@@ -37,7 +41,9 @@ class TweetsController < ApplicationController
       tweet = @client.status(timeline.id)
       tweet_created = tweet.created_at
       oembed = @client.oembed(tweet.id).html
-      Tweet.create(content: oembed, user_id: 1)
+      unless Tweet.where(tweet_api_id: tweet.id.to_s).count > 0
+        Tweet.create(content: tweet.text, html_content: oembed, user_id: 1, tweet_api_id: tweet.id)
+      end
     end
     redirect_to :controller => "tweets", :action => "index"
   end
