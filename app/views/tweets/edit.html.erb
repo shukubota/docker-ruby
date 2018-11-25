@@ -1,0 +1,14 @@
+<h2>個人情報</h2>
+<h2>
+  <%= link_to "topへ", :controller => "tweets", :action => "index"  %>
+</h2>
+<div>
+  ツイート内容y: <%= @tweet.content %>
+</div>
+
+<div>
+  <%= form_tag(@save_path, :method => :post) do %>
+    <%= text_area(:tweet, :content) %>
+    <%= submit_tag("submitする") %>
+  <% end %>
+</div>

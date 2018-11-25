@@ -23,5 +23,6 @@ module DockerRubyTest
     # -- all .rb files in that directory are automatically loaded.
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+    config.time_zone = 'Tokyo'
   end
 end

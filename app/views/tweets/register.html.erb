@@ -1,0 +1,11 @@
+<h2>tweet登録</h2>
+<h2>
+  <%= link_to "topへ", :controller => "tweets", :action => "index"  %>
+</h2>
+
+<div>
+  <%= form_tag("/tweets/create", :method => :post) do %>
+    <input id="register_name_field" name="content" type="text"/>
+    <%= submit_tag("登録する") %>
+  <% end %>
+</div>

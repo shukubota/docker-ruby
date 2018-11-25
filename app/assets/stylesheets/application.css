@@ -186,7 +186,8 @@
  
  div#content{
      width: 660px;
-     float: left;
+     float: right;
+
  }
  
  div#content h2{
@@ -199,3 +200,23 @@
 .top_title {
   background-color: #C0C0C0 !important; 
 }
+/*-------------------------sidebarの指定*/  
+#sidebar-top {  
+    width: 180px;  
+    float: left;  
+    margin: 0;  
+    padding: 0;  
+  }  
+
+  div#contents{
+    width: 660px;
+    float: right;
+  }
+
+  table {
+    width:600px
+  }
+
+  #td-tweet {
+    width: 50px;
+  }
