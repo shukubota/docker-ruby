@@ -42,7 +42,7 @@ class TweetsController < ApplicationController
       tweet_created = tweet.created_at
       oembed = @client.oembed(tweet.id).html
       unless Tweet.where(tweet_api_id: tweet.id.to_s).count > 0
-        Tweet.create(content: tweet.text, html_content: oembed, user_id: 1, tweet_api_id: tweet.id)
+        Tweet.create(content: tweet.text, html_content: oembed, user_id: User.all[0].id, tweet_api_id: tweet.id)
       end
     end
     redirect_to :controller => "tweets", :action => "index"
