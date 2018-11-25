@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :twitter_client, only: [:get_tweets]
   def index
     @tweets = Tweet.all
   end
@@ -29,5 +30,25 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find_by(id: params[:id])
     @tweet.delete
     redirect_to :controller => "tweets", :action => "index"
+  end
+
+  def get_tweets
+    @client.user_timeline('ScoutalkT',include_rts:false,exclude_replies:true).each do |timeline|
+      tweet = @client.status(timeline.id)
+      tweet_created = tweet.created_at
+      oembed = @client.oembed(tweet.id).html
+      Tweet.create(content: oembed, user_id: 1)
+    end
+    redirect_to :controller => "tweets", :action => "index"
+  end
+
+  private
+  def twitter_client
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key = "HyM0pCYtFbn14zTGCqhPJojpr"
+      config.consumer_secret = "oUdIQAfEWRoijoAz3X5QxCpvzzvqriNl4cVxtzaaiMZvoSGVzt"
+      config.access_token = "991538627988500480-xnCiknhDgi4BZ71h8kavJaZzY7YzrlD"
+      config.access_token_secret ="46tbN9MmC2P9udMW9b7dgQ2OD8WsCYDO6Lstze3Fpi3EQ"
+    end
   end
 end

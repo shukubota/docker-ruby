@@ -25,13 +25,13 @@
     <% @tweets.each do |tweet| %>
         <tr>
         <td ~~~  style="word-wrap:break-word;>
-          <%= link_to tweet.content, :controller => "tweets", :action => "show", :id => tweet.id%>
+          <%= link_to tweet.content.html_safe, :controller => "tweets", :action => "show", :id => tweet.id%>
         </td>
         <td ~~~ >
           <%= (tweet.item && tweet.item.name) || '' %>
         </td>
         <td>
-          <%= (tweet.created_at) || '' %>
+          <%= (tweet.created_at.to_s.split('+')[0]) || '' %>
         </td>  
         </tr>    
     <% end %>

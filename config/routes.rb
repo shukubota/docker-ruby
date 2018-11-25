@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get "/" => "users#index"
   mount API => '/'
   get "/mypage" => "mypages#index"
+  get "/get_tweets" => "tweets#get_tweets"
 end
