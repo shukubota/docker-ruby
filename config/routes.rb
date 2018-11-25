@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post "/users/create" => "users#create"
   post "/users/save/:id" => "users#save"
   get "/" => "users#index"
+  mount API => '/'
 end
