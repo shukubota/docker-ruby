@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get "/users" => "tweets#index"
+  get "/users" => "users#index"
   get "/users/show/:id" => "users#show"
   post "/users/edit/:id" => "users#edit"
   post "/users/delete/:id" => "users#delete"
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post "/tweets/create" => "tweets#create"
   post "/tweets/save/:id" => "tweets#save"
   get "/tweets" => "tweets#index"
-  get "/" => "users#index"
+  get "/" => "tweets#index"
   mount API => '/'
   get "/mypage" => "mypages#index"
   get "/get_tweets" => "tweets#get_tweets"
