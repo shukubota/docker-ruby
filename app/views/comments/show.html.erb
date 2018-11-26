@@ -1,23 +1,19 @@
-<h2 style="text-align: center"> コメントの詳細</h2>
+<h1> コメントの詳細</h1>
 
 
 <div id="wrapper">  
 
-<!--sidebar部分-->  
+<!--sidebar部分-->   
 <div id="sidebar-top">  
-  <h3>コメント一覧</h3> 
-  <h3>商品一覧</h3> 
-  <h3>ログアウト</h3> 
+  <h3><%= link_to "マイページ", {:controller => "mypages", :action => "index"}, method: :get %></h3> 
+  <h3><%= link_to "広告一覧", {:controller => "items", :action => "index"}, method: :get %></h3> 
+  <h3><%= link_to "ログアウト", {:controller => "companies", :action => "sign_in_index"}, method: :get %></h3> 
+</div>  
 </div>  
 
 <div id="contents"> 
 <h2>
   <%= link_to "topへ", :controller => "items", :action => "index"  %>
-</h2>
-<h2>
-  意見: <%= @comment.content %>
-  <div>
-</div>
 </h2>
 
 <div id="contents">
@@ -29,7 +25,7 @@
             <%=  @comment.content %>
             </h2>
             <p>
-              <%= link_to "ユーザーの詳細", :controller => "items", :action => "index"  %>
+              <%= link_to "ユーザーの詳細", :controller => "users", :action => "show", :id => @comment.user.id  %>
             </p>
             <p>
               <%= link_to "スカウトを送る", :controller => "comments", :action => "show", :id => @comment.id  %>
@@ -41,6 +37,12 @@
             <% end %>
           </div>
     </div>
+    <div>
+      <%= form_tag('/', :method => :get) do %>
+      <%= text_area(:item, :name) %>
+      <%= submit_tag("スカウトを送信する") %>
+    <% end %>
+</div>
     </div>
   </div>  
 </div>

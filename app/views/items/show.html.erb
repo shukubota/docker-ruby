@@ -1,13 +1,14 @@
-<h2 style="text-align: center">詳細情報</h2>
+<h1 >詳細情報</h1>
 
 
 <div id="wrapper">  
 
 <!--sidebar部分-->  
 <div id="sidebar-top">  
-  <h3>コメント一覧</h3> 
-  <h3>商品一覧</h3> 
-  <h3>ログアウト</h3> 
+  <h3><%= link_to "マイページ", {:controller => "mypages", :action => "index"}, method: :get %></h3> 
+  <h3><%= link_to "アイデアの種一覧", {:controller => "items", :action => "index"}, method: :get %></h3> 
+  <h3><%= link_to "ログアウト", {:controller => "companies", :action => "sign_in_index"}, method: :get %></h3> 
+</div>  
 </div>  
 
 <div id="contents"> 
@@ -15,7 +16,7 @@
   <%= link_to "topへ", :controller => "items", :action => "index"  %>
 </h2>
 <h2>
-  名前: <%= @item.name %>
+  <%= @item.name %>
   <div>
   <% if @item.image_path %>
     <img src="/post_images/<%= @item.image_path %>" width="200px" />
@@ -33,7 +34,7 @@
             <%=  comment.content %>
             </h2>
             <p>
-              <%= link_to "ユーザーの詳細", :controller => "items", :action => "index"  %>
+              <%= link_to "ユーザーの詳細", :controller => "users", :action => "show", :id => comment.user.id  %>
             </p>
             <p>
               <%= link_to "スカウトを送る", :controller => "comments", :action => "show", :id => comment.id %>
