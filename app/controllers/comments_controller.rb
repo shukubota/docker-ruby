@@ -7,5 +7,9 @@ class CommentsController < ApplicationController
         if params[:tweet_screen] == "false"
             @content_type = false
         end
-        end
+    end
+    def test
+        Comment.create(content: "将来都会住んだときに「鳥取どこ？」とか言われそうで不安、、、", user_id: 1, item_id: 12)
+        redirect_to '/'
+    end
 end

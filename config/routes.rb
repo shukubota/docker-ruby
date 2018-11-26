@@ -32,4 +32,6 @@ Rails.application.routes.draw do
   post "/items/save/:id" => "items#save"
 
   get "/comments/show/:id" => "comments#show"
+
+  get "/comments/test" => "comments/test"
 end
