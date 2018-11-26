@@ -1,4 +1,4 @@
-<h2 style="text-align: center">詳細情報</h2>
+<h2 style="text-align: center"> コメントの詳細</h2>
 
 
 <div id="wrapper">  
@@ -15,11 +15,8 @@
   <%= link_to "topへ", :controller => "items", :action => "index"  %>
 </h2>
 <h2>
-  名前: <%= @item.name %>
+  意見: <%= @comment.content %>
   <div>
-  <% if @item.image_path %>
-    <img src="/post_images/<%= @item.image_path %>" width="200px" />
-  <% end %>
 </div>
 </h2>
 
@@ -27,24 +24,22 @@
   <div id="article_list"> 
     <div> 
       <div> 
-        <% @comments.each do |comment| %>
         <div id="article_wrap"> 
             <h2>
-            <%=  comment.content %>
+            <%=  @comment.content %>
             </h2>
             <p>
               <%= link_to "ユーザーの詳細", :controller => "items", :action => "index"  %>
             </p>
             <p>
-              <%= link_to "スカウトを送る", :controller => "comments", :action => "show", :id => comment.id %>
+              <%= link_to "スカウトを送る", :controller => "comments", :action => "show", :id => @comment.id  %>
             </p>
-            <% if comment.id % 2 == 0%>
+            <% if @comment.id % 2 == 0%>
               <img src="/post_images/red.png" width="30px" />
             <% else %>
               <img src="/post_images/black.png" width="30px" />
             <% end %>
           </div>
-        <% end %>
     </div>
     </div>
   </div>  
@@ -56,9 +51,9 @@
   </p>
   <p>
     <% if @content_type %>
-      <%= link_to "テキスト表示", {:controller => "items", :action => "show", :id => @item.id, :tweet_screen => false}, method: :get %>
+      <%= link_to "テキスト表示", {:controller => "comments", :action => "show", :id => @comment.id, :tweet_screen => false}, method: :get %>
     <% else %>
-      <%= link_to "ツイート表示", {:controller => "items", :action => "show", :id => @item.id, :tweet_screen => true}, method: :get %>
+      <%= link_to "ツイート表示", {:controller => "comments", :action => "show", :id => @comment.id, :tweet_screen => true}, method: :get %>
     <% end %>
 　 </p>
 
@@ -72,7 +67,7 @@
         <col style="width:30%;">
       </colgroup>
       <tr>
-        <th>関連するツイート</th><th></th><th>日時</th>
+        <th>このユーザーのツイート</th><th></th><th>日時</th>
       </tr>
     <% @tweets.each do |tweet| %>
         <tr>

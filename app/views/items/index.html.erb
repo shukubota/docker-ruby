@@ -16,7 +16,7 @@
       <%= link_to "広告作成", {:controller => "items", :action => "register"}, method: :get %>
     </p>
     
-    <div> 
+      <div> 
         <% @items.each do |item| %>
         <div id="article_wrap"> 
             <h2>
@@ -33,10 +33,9 @@
             <p>
             <%= link_to "削除する", {:controller => "items", :action => "delete", :id => item.id}, method: :post%>
             </p>
-        </div>
+          </div>
         <% end %>
     </div>
     </div>
   </div>  
 </div>
-</div>  

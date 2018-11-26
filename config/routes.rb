@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   get "/items/register" => "items#register"
   post "/items/create" => "items#create"
   post "/items/save/:id" => "items#save"
+
+  get "/comments/show/:id" => "comments#show"
 end

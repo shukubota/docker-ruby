@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find_by(id: params[:id])
     @tweets = Tweet.all
+    @comments = Comment.all
     @content_type = true
     if params[:tweet_screen] == "false"
       @content_type = false
