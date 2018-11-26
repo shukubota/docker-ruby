@@ -1,0 +1,42 @@
+
+<div id="wrapper">  
+<h1 class="top_title"> 広告一覧</h1>
+
+<!--sidebar部分-->  
+<div id="sidebar-top">  
+  <h3><%= link_to "マイページ", {:controller => "mypages", :action => "index"}, method: :get %></h3> 
+  <h3><%= link_to "広告一覧", {:controller => "items", :action => "index"}, method: :get %></h3> 
+  <h3><%= link_to "ログアウト", {:controller => "companies", :action => "sign_in_index"}, method: :get %></h3> 
+</div>  
+
+<div id="contents">
+  <div id="article_list"> 
+    <div> 
+    <p>
+      <%= link_to "広告作成", {:controller => "items", :action => "register"}, method: :get %>
+    </p>
+    
+    <div> 
+        <% @items.each do |item| %>
+        <div id="article_wrap"> 
+            <h2>
+            <%= link_to item.name, :controller => "items", :action => "show", :id => item.id%>
+            </h2>
+            <div>
+              <% if item.image_path %>
+                <img src="/post_images/<%= item.image_path %>" width="200px" />
+              <% end %>
+            </div>
+            <p>
+            <%= link_to "編集する", {:controller => "items", :action => "edit", :id => item.id}, method: :post%>
+            </p>
+            <p>
+            <%= link_to "削除する", {:controller => "items", :action => "delete", :id => item.id}, method: :post%>
+            </p>
+        </div>
+        <% end %>
+    </div>
+    </div>
+  </div>  
+</div>
+</div>  

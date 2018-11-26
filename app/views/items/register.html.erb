@@ -1,0 +1,13 @@
+<h2>広告登録</h2>
+<h2>
+  <%= link_to "topへ", :controller => "items", :action => "index"  %>
+</h2>
+
+<div>
+  <%= form_tag("/items/create", :method => :post, :multipart => true) do %>
+    <%= file_field_tag :file, accept: 'image/jpg,image/jpeg,image/png' %>
+    <input id="register_name_field" name="name" type="text"/>
+
+    <%= submit_tag("登録する") %>
+  <% end %>
+</div>

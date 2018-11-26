@@ -108,7 +108,7 @@
  
  div#article_list div h2 a{
      font-size: 18px;
-     color: #161616;
+      /* color: #161616; */
      text-decoration: none;
  }
  
@@ -198,7 +198,8 @@
 /*-----------------------------*/
 
 .top_title {
-  background-color: #C0C0C0 !important; 
+  /* background-color: #C0C0C0 !important;  */
+  /* text-align: center; */
 }
 /*-------------------------sidebarの指定*/  
 #sidebar-top {  
@@ -210,7 +211,7 @@
 
   div#contents{
     width: 660px;
-    float: right;
+    float: left;
   }
 
   table {
@@ -220,3 +221,14 @@
   #td-tweet {
     width: 50px;
   }
+
+  table.sample {
+    border-collapse: collapse;
+    border: 2px solid green; /* 外側の枠線 */
+ }
+ table.sample td {
+    border-width: 1px 0px; /* 上下だけ引く */
+    border-color: green;   /* 線色：緑 */
+    border-style: solid;   /* 線種：実線 */
+    padding: 0.3em;        /* セル内側の余白 */
+ }

@@ -31,4 +31,8 @@ class UsersController < ApplicationController
     redirect_to :controller => "users", :action => "index"
   end
 
+  def sign_in_index
+  
+  end
+
 end

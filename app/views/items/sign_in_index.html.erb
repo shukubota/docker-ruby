@@ -1,0 +1,16 @@
+<h2>ログイン</h2>
+<h3>
+  <%= link_to "新規登録", :controller => "users", :action => "index"  %>
+</h3>
+
+<div>
+  <%= form_tag("/users/create", :method => :post) do %>
+    <p>
+      <input id="register_name" name="name" type="text" placeholder="名前"/>
+    </p>
+    <p>
+      <input id="register_pass" name="pass" type="password" placeholder="パスワード"/>
+    </p>
+    <%= submit_tag("ログインする") %>
+  <% end %>
+</div>

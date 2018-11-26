@@ -1,23 +1,35 @@
+<h2 style="text-align: center">詳細情報</h2>
+
 
 <div id="wrapper">  
-<h1 class="top_title">tweet 一覧</h1>
 
 <!--sidebar部分-->  
 <div id="sidebar-top">  
-  <div>コメント一覧</div> 
-  <div>商品一覧</div> 
-  <div>ログアウト</div> 
+  <h3>コメント一覧</h3> 
+  <h3>商品一覧</h3> 
+  <h3>ログアウト</h3> 
 </div>  
 
-<div id="contents">  
+<div id="contents"> 
+<h2>
+  <%= link_to "topへ", :controller => "items", :action => "index"  %>
+</h2>
+<h2>
+  名前: <%= @item.name %>
+  <div>
+  <% if @item.image_path %>
+    <img src="/post_images/<%= @item.image_path %>" width="200px" />
+  <% end %>
+</div>
+</h2> 
   <p>
     <%= link_to "ツイート更新", {:controller => "tweets", :action => "get_tweets"}, method: :get %>
   </p>
   <p>
     <% if @content_type %>
-      <%= link_to "テキスト表示", {:controller => "tweets", :action => "index", :tweet_screen => false}, method: :get %>
+      <%= link_to "テキスト表示", {:controller => "items", :action => "show", :id => @item.id, :tweet_screen => false}, method: :get %>
     <% else %>
-      <%= link_to "ツイート表示", {:controller => "tweets", :action => "index", :tweet_screen => true}, method: :get %>
+      <%= link_to "ツイート表示", {:controller => "items", :action => "show", :id => @item.id, :tweet_screen => true}, method: :get %>
     <% end %>
 　 </p>
 
@@ -31,7 +43,7 @@
         <col style="width:30%;">
       </colgroup>
       <tr>
-        <th>ツイート</th><th>商品名</th><th>日時</th>
+        <th>ツイート</th><th></th><th>日時</th>
       </tr>
     <% @tweets.each do |tweet| %>
         <tr>

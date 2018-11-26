@@ -1,1 +1,22 @@
-<h1>tweet一覧</h1>
+<div id="wrapper">  
+<h1 class="top_title"> マイページ</h1>
+
+<!--sidebar部分-->  
+<div id="sidebar-top">  
+  <h3><%= link_to "マイページ", {:controller => "mypages", :action => "index"}, method: :get %></h3> 
+  <h3><%= link_to "広告一覧", {:controller => "items", :action => "index"}, method: :get %></h3> 
+  <h3><%= link_to "ログアウト", {:controller => "companies", :action => "sign_in_index"}, method: :get %></h3> 
+</div>  
+
+<div id="contents">
+  <div> 
+    <div> 
+      <div style="position: absolute padding-left: 100">
+        <img src="/post_images/profile.jpg" width="600px" />
+      </div>
+    </div>
+    <h2>
+      いいねしたユーザー
+    </h2>
+  </div>
+</div>  

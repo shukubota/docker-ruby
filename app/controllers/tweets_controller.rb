@@ -45,7 +45,8 @@ class TweetsController < ApplicationController
         Tweet.create(content: tweet.text, html_content: oembed, user_id: User.all[0].id, tweet_api_id: tweet.id)
       end
     end
-    redirect_to :controller => "tweets", :action => "index"
+    #redirect_to :controller => "tweets", :action => "index"
+    redirect_to :back
   end
 
   private

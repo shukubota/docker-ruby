@@ -15,8 +15,19 @@ Rails.application.routes.draw do
   post "/tweets/create" => "tweets#create"
   post "/tweets/save/:id" => "tweets#save"
   get "/tweets" => "tweets#index"
-  get "/" => "tweets#index"
+  get "/" => "items#index"
   mount API => '/'
   get "/mypage" => "mypages#index"
   get "/get_tweets" => "tweets#get_tweets"
+  get "/users/sign_in" => "users#sign_in_index"
+  get "/companies/sign_in" => "companies#sign_in_index"
+  post "/companies/companies_sign_in" => "companies#sign_in"
+
+  get "/items" => "items#index"
+  get "/items/show/:id" => "items#show"
+  post "/items/edit/:id" => "items#edit"
+  post "/items/delete/:id" => "items#delete"
+  get "/items/register" => "items#register"
+  post "/items/create" => "items#create"
+  post "/items/save/:id" => "items#save"
 end
