@@ -25,6 +25,10 @@ dockerのruby imageからrails環境を作る
 ```docker-compose exec app /bin/bash -l```
 
 
+### 初回だけ
+migrationとかdatabase createとかしてくれる
+```./scripts/setup_docker.sh```
+
 ### rails server
 ```bin/rails s```
 
@@ -49,3 +53,9 @@ heroku logs -t
 ```
 heroku run rake db:migrate
 ```
+
+### 環境変数
+ツイッターのapi用に環境変数設定しとく
+
+heroku config:set 変数名=
+heroku config:set CONSUMER_KEY=xxxxxx CONSUMER_SECRET=xxxx ACCESS_TOKEN=xxxx ACCESS_TOKEN_SECRET=xxxx
