@@ -57,5 +57,6 @@ heroku run rake db:migrate
 ### 環境変数
 ツイッターのapi用に環境変数設定しとく
 
-heroku config:set 変数名=
+```
 heroku config:set CONSUMER_KEY=xxxxxx CONSUMER_SECRET=xxxx ACCESS_TOKEN=xxxx ACCESS_TOKEN_SECRET=xxxx
+```
