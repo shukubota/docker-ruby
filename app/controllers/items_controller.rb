@@ -47,7 +47,6 @@ class ItemsController < ApplicationController
   end
 
   def sign_in_index
-  
   end
 
   private

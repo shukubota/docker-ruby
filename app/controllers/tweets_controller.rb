@@ -52,10 +52,11 @@ class TweetsController < ApplicationController
   private
   def twitter_client
     @client = Twitter::REST::Client.new do |config|
-      config.consumer_key = ""
-      config.consumer_secret = ""
-      config.access_token = ""
-      config.access_token_secret =""
+      # config.consumer_key = "l8PpXIJtZrHTVCR3B4WERlg8f"
+      config.consumer_key = ENV['CONSUMER_KEY']
+      config.consumer_secret = "0vbQ0LvNcqd8i6oHW8SUhaPtSVPVh5VRzz4heCaLHbO6GP3Avc"
+      config.access_token = "991538627988500480-g1nJz48OFkQ7OmRSkoa0VIyMJLEJSsD"
+      config.access_token_secret ="uP9awUtW20raU6yEh3Vq8B3sU1CWw5cKka3WMOEhGWvrt"
     end
   end
 end
