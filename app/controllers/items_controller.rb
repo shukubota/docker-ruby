@@ -24,28 +24,21 @@ class ItemsController < ApplicationController
     @item.update(
       name: params[:item][:name],
       twitter_user_name: params[:item][:twitter_user_name],
-      content: params[:item][:content]
+      content: params[:item][:content],
+      image_path: params[:image]
     )
     redirect_to :controller => "items", :action => "index"
   end
 
   def create
-    #redirect_to :controller => "users", :action => "register" if params[:name].empty?
+    image_path = params[:image].empty? ? 'http://ascii.jp/elem/000/001/462/1462295/icon_ogp.jpg' : params[:image]
     @item = Item.create(
       name: params[:name],
       twitter_user_name: params[:twitter],
-      content: params[:content]
+      content: params[:content],
+      image_path: image_path
     )
-    if @item
-      if params[:file]
-        File.binwrite("public/post_images/#{@item.id}.jpg", params[:file].read)
-          @item.update(image_path: "#{@item.id}.jpg" )
-        else
-          @item.update(image_path: "default.jpg" )
-        end
-    else
-      error = "もう一度やり直してください"
-    end
+
     redirect_to :controller => "items", :action => "index"
   end
 
