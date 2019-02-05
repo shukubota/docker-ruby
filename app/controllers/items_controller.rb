@@ -4,8 +4,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @flash_message = params[:flash_message]
     @item = Item.find_by(id: params[:id])
-    @tweets = Tweet.all
+    @tweets = Tweet.where(item_id: params[:id])
     @comments = Comment.all
     @content_type = true
     if params[:tweet_screen] == "false"
@@ -20,13 +21,21 @@ class ItemsController < ApplicationController
 
   def save
     @item = Item.find_by(id: params[:id])
-    @item.update(name: params[:item][:name])
+    @item.update(
+      name: params[:item][:name],
+      twitter_user_name: params[:item][:twitter_user_name],
+      content: params[:item][:content]
+    )
     redirect_to :controller => "items", :action => "index"
   end
 
   def create
     #redirect_to :controller => "users", :action => "register" if params[:name].empty?
-    @item = Item.create(name: params[:name], company_id: 1)
+    @item = Item.create(
+      name: params[:name],
+      twitter_user_name: params[:twitter],
+      content: params[:content]
+    )
     if @item
       if params[:file]
         File.binwrite("public/post_images/#{@item.id}.jpg", params[:file].read)
@@ -42,6 +51,9 @@ class ItemsController < ApplicationController
 
   def delete
     @item = Item.find_by(id: params[:id])
+    @item.tweets.each do |tweet|
+      tweet.delete
+    end
     @item.delete
     redirect_to :controller => "items", :action => "index"
   end

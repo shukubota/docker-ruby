@@ -47,11 +47,19 @@
           </div>
         <% end %>
     </div>
+    <h2>メモ</h2>
+    <div>
+      <%= @item.content %>
+    </div>
     </div>
   </div>  
 </div>
 
 
+
+  <h2>
+    <%= @flash_message %>
+  </h2>
   <p>
     <%= link_to "ツイート更新", {:controller => "tweets", :action => "get_tweets"}, method: :get %>
   </p>

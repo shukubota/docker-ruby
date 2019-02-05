@@ -21,35 +21,33 @@
     <div> 
       <div> 
         <div id="article_wrap"> 
-            <h2>
+          <h2>
             <%=  @comment.content %>
-            </h2>
-            <p>
-              <%= link_to "ユーザーの詳細", :controller => "users", :action => "show", :id => @comment.user.id  %>
-            </p>
-            <p>
-              <%= link_to "スカウトを送る", :controller => "comments", :action => "show", :id => @comment.id  %>
-            </p>
-            <% if @comment.id % 2 == 0%>
-              <img src="/post_images/red.png" width="30px" />
-            <% else %>
-              <img src="/post_images/black.png" width="30px" />
-            <% end %>
-          </div>
-    </div>
-    <div>
-      <%= form_tag('/', :method => :get) do %>
-      <%= text_area(:item, :name) %>
-      <%= submit_tag("スカウトを送信する") %>
-    <% end %>
-</div>
+          </h2>
+          <p>
+            <%= link_to "ユーザーの詳細", :controller => "users", :action => "show", :id => @comment.user.id  %>
+          </p>
+          <p>
+            <%= link_to "スカウトを送る", :controller => "comments", :action => "show", :id => @comment.id  %>
+          </p>
+          <% if @comment.id % 2 == 0%>
+            <img src="/post_images/red.png" width="30px" />
+          <% else %>
+            <img src="/post_images/black.png" width="30px" />
+          <% end %>
+        </div>
+      </div>
+      <div>
+        <%= form_tag('/', :method => :get) do %>
+          <%= text_area(:item, :name) %>
+          <%= submit_tag("スカウトを送信する") %>
+        <% end %>
+      </div>
     </div>
   </div>  
 </div>
-
-
   <p>
-    <%= link_to "ツイート更新", {:controller => "tweets", :action => "get_tweets"}, method: :get %>
+    <%= link_to "ツイート更新", {:controller => "tweets", :action => "get_tweets", :id => @item.id}, method: :get %>
   </p>
   <p>
     <% if @content_type %>

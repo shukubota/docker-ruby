@@ -23,7 +23,9 @@
             <%= link_to item.name, :controller => "items", :action => "show", :id => item.id%>
             </h2>
             <div>
-              <% unless item.image_path == "default.jpg" %>
+              <% if item.image_path == "default.jpg" %>
+                <img src="/post_images/default.jpg" width="200px" />
+              <% else %>
                 <img src="/post_images/<%= item.image_path %>" width="200px" />
               <% end %>
             </div>

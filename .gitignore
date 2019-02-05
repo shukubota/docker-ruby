@@ -21,4 +21,4 @@
 .byebug_history
 
 vendor/bundle
-public/post_images
+# public/post_images

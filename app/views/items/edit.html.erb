@@ -8,7 +8,17 @@
 
 <div>
   <%= form_tag(@save_path, :method => :post) do %>
-    <%= text_area(:item, :name) %>
+    <div>
+      <%= text_area(:item, :name) %>
+    </div>
+    <p>ツイッターid</p>
+    <div>
+      <%= text_area(:item, :twitter_user_name) %>
+    </div>
+    <p>メモ</p>
+    <div>
+      <%= text_area(:item, :content) %>
+    </div>
     <%= submit_tag("submitする") %>
   <% end %>
 </div>

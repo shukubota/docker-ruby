@@ -232,3 +232,7 @@
     border-style: solid;   /* 線種：実線 */
     padding: 0.3em;        /* セル内側の余白 */
  }
+
+ textarea#register_content_field {
+     height: 300px;
+ }
