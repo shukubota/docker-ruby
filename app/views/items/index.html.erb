@@ -1,11 +1,11 @@
 
 <div id="wrapper">  
-<h1 class="top_title"> アイデアの種一覧</h1>
+<h1 class="top_title"> 人物一覧</h1>
 
 <!--sidebar部分-->  
 <div id="sidebar-top">  
   <h3><%= link_to "マイページ", {:controller => "mypages", :action => "index"}, method: :get %></h3> 
-  <h3><%= link_to "アイデアの種一覧", {:controller => "items", :action => "index"}, method: :get %></h3> 
+  <h3><%= link_to "人物一覧", {:controller => "items", :action => "index"}, method: :get %></h3> 
   <h3><%= link_to "ログアウト", {:controller => "companies", :action => "sign_in_index"}, method: :get %></h3> 
 </div>  
 
@@ -13,7 +13,7 @@
   <div id="article_list"> 
     <div> 
     <p>
-      <%= link_to "記事作成", {:controller => "items", :action => "register"}, method: :get %>
+      <%= link_to "人物作成", {:controller => "items", :action => "register"}, method: :get %>
     </p>
     
       <div> 
